@@ -1,0 +1,7 @@
+<div>
+    <app-header></app-header>
+    <router-outlet></router-outlet>
+    <div class="overlay" *ngIf="showLoader">
+        <div class="loader"><p-progressSpinner></p-progressSpinner></div>
+    </div>
+</div>

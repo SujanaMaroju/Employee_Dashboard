@@ -1,0 +1,114 @@
+.emp_docs{
+    width: 90%;
+    height: 100vh;
+    padding-top: 7em;
+    margin: 0 auto;
+}
+
+.emp_container{
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+
+.emp_card{
+    flex: 0 0 auto;
+    padding: 0.5rem;
+    width: 50%;
+}
+
+.emp_cardBox{
+    height: 7rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 5px #00000005, 0 0 2px #0000000d, 0 1px 4px #00000014;
+    cursor: pointer;
+    p{
+        font-size: 18px;
+        font-weight: 700;
+        color: #ffffff;
+    }
+}
+
+.emp_cardBox:hover{
+    padding: 5px;
+    p{
+        font-size: 19px;
+    }
+}
+
+.c1{
+    background: #42A5F5;
+}
+
+.c2{
+    background: #7E57C2;
+}
+
+.c3{
+    background: #FFB300;;
+}
+
+.c4{
+    background: #66BB6A;
+}
+
+.emp_docs_svg{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 65%;
+    border-radius: 90px;
+    background-color: #008cc9;
+    padding: 1px;
+}
+
+.emp_docs_svg:hover, .emp_docs_svg:focus{
+    width: 64%;
+}
+
+.emp_docs_container{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    cursor: pointer;
+    a{
+        width: 25%;
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        color: black;
+        word-break: break-all;
+        span{
+            margin: 15px 0;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .emp_docs_container{
+        a{
+            width: 50%;
+        }
+    }
+}
+
+@media (min-width: 600px) and  (max-width: 1024px){
+    .emp_docs_container{
+        a{
+            width: 30%;
+        }
+    }
+}
+
+.emp_header{
+    display: flex;
+    align-items: center;
+    margin:10px 12px;
+    h4{
+        margin-left: 5px;
+    }
+}

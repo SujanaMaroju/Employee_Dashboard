@@ -1,0 +1,121 @@
+<div class="uploadDocs">
+    <p-toast></p-toast>
+    <div class="uploadDocs_header">
+        <h3 class="uploadDocs_title">Upload Documents</h3>
+        <p-button label="Open Documents" [disabled]="false" (click)="openDocs()"></p-button>
+    </div>
+    <div class="overlay"  *ngIf="isLoading">
+        <div class="uploadDocs_spinner">
+            <p-progressSpinner></p-progressSpinner>
+        </div>
+    </div>
+    
+    <button class="back_btn" (click)="onBackClick()"><span class="pi pi-arrow-left" style="color: #ffffff"></span></button>
+    <div class="uploadDocs_container">
+        <p-accordion [multiple]="true">
+            <p-accordionTab header="Visa">
+                <div class="uploadDocs_info_container">
+                    <span [pTooltip]="tooltipContent1" tooltipPosition="right" label="">Documents that can be uploaded <span class="pi pi-arrow-circle-right"></span></span>
+                </div>
+                <ng-template #tooltipContent1>
+                    <div class="flex align-items-center">
+                        <ul>
+                            <li>Green Card</li>
+                            <li>H1B Document</li>
+                            <li>I140 Document</li>
+                            <li>I94 Document</li>
+                            <li>I20 Document</li>
+                            <li>EAD Card</li>
+                        </ul>
+                    </div>
+                </ng-template>
+                <div class="doc1">
+                    <input type="file" (change)="onFileChange($event,'Visa')" multiple />
+                    <div class="uploaded_files">
+                        <ul>
+                            <li *ngFor="let Vfile of selectedEmpData?.documents?.['Visa']">
+                                <span class="file_title">{{Vfile.name || Vfile.originalname}}</span>
+                                <span class="pi pi-trash" (click)="removeFile(Vfile,'Visa', selectedEmpData.id)"></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>                
+            </p-accordionTab>
+            <p-accordionTab header="Identity Proofs">
+                <div class="uploadDocs_info_container">
+                    <span [pTooltip]="tooltipContent2" tooltipPosition="right" label="">Documents that can be uploaded <span class="pi pi-arrow-circle-right"></span></span>
+                </div>
+                <ng-template #tooltipContent2>
+                    <div class="flex align-items-center">
+                        <ul>
+                            <li>Passport</li>
+                            <li>Driving Licence</li>
+                        </ul>
+                    </div>
+                </ng-template>
+                <div class="doc1">
+                    <input type="file" (change)="onFileChange($event,'IDs')" multiple />
+                    <div class="uploaded_files">
+                        <ul>
+                            <li *ngFor="let IDfile of selectedEmpData?.documents?.['IDs']">
+                                <span class="file_title">{{IDfile.name || IDfile.originalname}}</span>
+                                <span class="pi pi-trash" (click)="removeFile(IDfile,'IDs', selectedEmpData.id)"></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </p-accordionTab>
+            <p-accordionTab header="Transcripts">
+                <div class="uploadDocs_info_container">
+                    <span [pTooltip]="tooltipContent3" tooltipPosition="right" label="">Documents that can be uploaded <span class="pi pi-arrow-circle-right"></span></span>
+                </div>
+                <ng-template #tooltipContent3>
+                    <div class="flex align-items-center">
+                        <ul>
+                            <li>Transcript 1</li>
+                            <li>Transcript 2</li>
+                            <li>Transcript 3</li>
+                        </ul>
+                    </div>
+                </ng-template>
+                <div class="doc1">
+                    <input type="file" (change)="onFileChange($event,'Transcripts')" multiple />
+                    <div class="uploaded_files">
+                        <ul>
+                            <li *ngFor="let Tfile of selectedEmpData?.documents?.['Transcripts']">
+                                <span class="file_title">{{Tfile.name || Tfile.originalname}}</span>
+                                <span class="pi pi-trash" (click)="removeFile(Tfile,'Transcripts', selectedEmpData.id)"></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </p-accordionTab>
+            <p-accordionTab header="Payslips">
+                <div class="uploadDocs_info_container">
+                    <span [pTooltip]="tooltipContent4" tooltipPosition="right" label="">Documents that can be uploaded <span class="pi pi-arrow-circle-right"></span></span>
+                </div>
+                <ng-template #tooltipContent4>
+                    <div class="flex align-items-center">
+                        <ul>
+                            <li>Payslip 1</li>
+                            <li>Payslip 2</li>
+                            <li>Payslip 3</li>
+                        </ul>
+                    </div>
+                </ng-template>
+                <div class="doc1">
+                    <input type="file" (change)="onFileChange($event,'Payslips')" multiple />
+                    <div class="uploaded_files">
+                        <ul>
+                            <li *ngFor="let Pfile of selectedEmpData?.documents?.['Payslips']">
+                                <span class="file_title">{{Pfile.name || Pfile.originalname}}</span>
+                                <span class="pi pi-trash" (click)="removeFile(Pfile,'Payslips', selectedEmpData.id)"></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </p-accordionTab>
+        </p-accordion>
+        <div class="uploadDocs_submit_btn"><p-button [disabled]="submitFlag" (click)="onSubmit()">Submit</p-button></div>
+    </div>
+</div>
